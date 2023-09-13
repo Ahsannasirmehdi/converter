@@ -1,5 +1,5 @@
 import sys
-from PyQt5 import QtCore, QtGui, QtWidgets
+
 import os
 import time
 from threading import Thread
@@ -89,7 +89,7 @@ if int(n)==1:
     def main() -> None:
         access_key = 'Y/AcTvD1e1Ha79bKiLkEab+B0Tl14AGIWAaCrq5NxHDP+Jx+z1CjgQ=='  # Replace with your actual Picovoice Access Key
         video_path = str(vi)  # Replace with the path to your local video file
-        output_subtitle_path = 'subtitles.srt'  # Replace with the path where you want to save the subtitle
+        output_subtitle_path = '/content/drive/MyDrive/converter/subtitles.srt'  # Replace with the path where you want to save the subtitle
         model_path = ''  # Optionally specify the model path if needed
 
         anime = ProgressAnimation('Initializing Leopard with AccessKey `%s`' % access_key)
@@ -129,8 +129,7 @@ if int(n)==1:
 
         # Load the input SRT file
         subs = pysrt.open(input_srt_path)
-
-        # Create an empty SRT object to store the translated subtitles
+         # Create an empty SRT object to store the translated subtitles
         translated_subs = pysrt.SubRipFile()
 
         # Translate each subtitle and add it to the translated_subs object
@@ -185,18 +184,18 @@ if int(n)==1:
 
         main()
         try:
-            input_srt_file = r'subtitles.srt'  # Replace with the path to your input SRT file
-            output_srt_file = r'output_subtitles.srt'  # Replace with the desired output SRT file path
+            input_srt_file = r'/content/drive/MyDrive/converter/subtitles.srt'  # Replace with the path to your input SRT file
+            output_srt_file = r'/content/drive/MyDrive/converter/output_subtitles.srt'  # Replace with the desired output SRT file path
 
             translate_srt(input_srt_file, output_srt_file)
 
             print("SRT file translation complete.")
-            srtfilename = 'output_subtitles.srt'
-            mp4filename = self.lineEdit_2.text()
+            srtfilename = '/content/drive/MyDrive/converter/output_subtitles.srt'
+            mp4filename = vi
             video = VideoFileClip(mp4filename)
             subtitles = pysrt.open(srtfilename)
 
-            output_video_file = self.lineEdit_3.text() + r"\finalvideo.mp4"
+            output_video_file = "/content/drive/MyDrive/converter/finalvideo.mp4"
 
             print("Output file name: ", output_video_file)
 
@@ -254,8 +253,8 @@ elif int(n)==2:
         translated_subs.save(output_srt_path, encoding='utf-8')
 
 
-    input_srt_file = r'english_subtitles.srt'  # Replace with the path to your input SRT file
-    output_srt_file = self.lineEdit_3.text() + r'\french_subtitles.srt'  # Replace with the desired output SRT file path
+    input_srt_file = r'/content/drive/MyDrive/converter/english_subtitles.srt'  # Replace with the path to your input SRT file
+    output_srt_file = r'/content/drive/MyDrive/converter/french_subtitles.srt'  # Replace with the desired output SRT file path
 
     translate_srt(input_srt_file, output_srt_file)
 
