@@ -17,7 +17,7 @@ n=input()
 
 if int(n)==1:
 
-    print('Enter video link')
+    print('Enter video link onli mp4')
     vi = input()
 
     class ProgressAnimation(Thread):
@@ -211,7 +211,7 @@ if int(n)==1:
             print(e)
 
 elif int(n)==2:
-    print('Enter audio link')
+    print('Enter audio link onli wav')
     vi = input()
 
     def AudioToSRTOnSameLang(audio_file_name, audio_language, file_name):
