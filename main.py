@@ -486,7 +486,7 @@ elif int(n)==3:
 
             tts.save(r'ved.wav')
             audio = AudioFileClip(r'ved.wav')
-            videoclips = VideoFileClip(r'muted.mp4').subclip(start_time, end_time)
+            videoclips = VideoFileClip(r'muted.mp4').subclip(start_time, end_time + 1.5)
             videoclip = videoclips.set_audio(audio)
             clips.append(videoclip)
 
@@ -494,28 +494,7 @@ elif int(n)==3:
     # Add subtitles to the video
     final_video = concatenate_videoclips(clips)
 
-    # Write output video file
-    subtitles = pysrt.open('output_subtitles.srt')
-
-
-    def time_to_seconds(time_obj):
-        return time_obj.hours * 3600 + time_obj.minutes * 60 + time_obj.seconds + time_obj.milliseconds / 1000
-
-
-    for subtitle in subtitles:
-        start_time = time_to_seconds(subtitle.start)
-        end_time = time_to_seconds(subtitle.end)
-
-        tts = gTTS(str(subtitle.text))
-
-        tts.save(r'ved.wav')
-        audio = AudioFileClip('ved.wav')
-        videoclips = VideoFileClip('muted.mp4').subclip(start_time, end_time)
-        videoclip = videoclips.set_audio(audio)
-        clips.append(videoclip)
-
-    # Add subtitles to the video
-    final_video = concatenate_videoclips(clips)
+    
 
     # Write output video file
     final_video.write_videofile('Finalvoicevideo.mp4', codec='libx264')
