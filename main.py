@@ -472,15 +472,12 @@ elif int(n)==3:
     video.write_videofile(output_video_path, codec="libx264", audio_codec="aac")
     clips = []
 
-
+    subtitles = pysrt.open('output_subtitles.srt')
     def time_to_seconds(time_obj):
         return time_obj.hours * 3600 + time_obj.minutes * 60 + time_obj.seconds + time_obj.milliseconds / 1000
 
 
-    def create_subtitle_clips(debug=False):
-
-        subtitles = pysrt.open('output_subtitles.srt')
-        for subtitle in subtitles:
+    for subtitle in subtitles:
             start_time = time_to_seconds(subtitle.start)
             end_time = time_to_seconds(subtitle.end)
 
