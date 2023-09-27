@@ -437,7 +437,7 @@ elif int(n)==3:
 
             print("SRT file translation complete.")
             srtfilename = 'output_subtitles.srt'
-            mp4filename = 'self.lineEdit_2.text()'
+            mp4filename = str(vi)
             video = VideoFileClip(mp4filename)
             subtitles = pysrt.open(srtfilename)
 
